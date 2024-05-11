@@ -3,29 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title>Server-Side Calculator</title>    
-    <script defer src="scripts/axios.js"></script>
-    <script defer src="scripts/client.js" charset="utf-8"></script>
+    <script defer src="./scripts/axios.js"></script>
+    <script defer src="./scripts/client.js" charset="utf-8"></script>
   </head>
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form data-testid="calculator">
-      <input data-testid="numOne" placeholder="First Number">
-      <button>+</button>
-      <button>-</button>
-      <button>*</button>
-      <button>/</button>
-      <input data-testid="numTwo" placeholder="Second Number">
-      <button>=</button>
-      <button>C</button>
+    <form id="inputForm" data-testid="calculator">
+      <input id="number_one" data-testid="numOne" placeholder="First Number">
+      <button class="clickablebuttons" id="plus" onClick="additionButton(event)">+</button>
+      <button class="clickablebuttons" id="minus" onClick="subtractButton(event)">-</button>
+      <button class="clickablebuttons" id="multiply" onClick="multiplyButton(event)">*</button>
+      <button class="clickablebuttons" id="divide" onClick="divideDutton(event)">/</button>
+      <input id="number_two" data-testid="numTwo" placeholder="Second Number">
+      <button class="clickablebuttons" id="equals" onClick="calculatorInput(event)">=</button>
+      <button class="clickablebuttons" id="clearbutton" onClick="clearScreen(event)">C</button>
     </form>
 
-    <section data-testid="recentResult">
+    <section id="new_calculation" data-testid="recentResult">
+      
       <!-- The most recent calculation result goes here. -->
+    
     </section>
 
-    <section data-testid="resultHistory">
+    <section id="calculation_history" data-testid="resultHistory">
       <!-- The list of calculation results goes here. -->
+      
     </section>
   </body>
 </html>
