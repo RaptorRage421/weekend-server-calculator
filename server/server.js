@@ -14,8 +14,8 @@ let calculations = []
 
 let computeAnswer = (numOne,numTwo,operator) => {
 let storageSpot = {}
-storageSpot.numOne = parseFloat(numOne)
-storageSpot.numTwo = parseFloat(numTwo)
+storageSpot.numOne = numOne
+storageSpot.numTwo = numTwo
 storageSpot.operator = operator
 if (operator == "+"){
 storageSpot.answer = (Number(numOne) + Number(numTwo))
@@ -38,7 +38,7 @@ if (operator == "/"){
   calculations.push(storageSpot)
 }
 
-console.log(calculations)
+console.log("Computing answer...", calculations)
 }
 // Here's a wonderful place to make some routes:
 
