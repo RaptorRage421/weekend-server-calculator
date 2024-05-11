@@ -19,22 +19,22 @@ storageSpot.numTwo = parseFloat(numTwo)
 storageSpot.operator = operator
 if (operator == "+"){
 storageSpot.answer = (Number(numOne) + Number(numTwo))
-console.log(storageSpot)
+console.log("doing addition: ", storageSpot)
 calculations.push(storageSpot)
 }
 if (operator == "-"){
   storageSpot.answer = (Number(numOne) - Number(numTwo))
-  console.log(storageSpot)
+  console.log("doing subtraction: ", storageSpot)
   calculations.push(storageSpot)
 }
 if (operator == "*"){
   storageSpot.answer = (Number(numOne) * Number(numTwo))
-  console.log(storageSpot)
+  console.log("doing multiplication: ", storageSpot)
   calculations.push(storageSpot)
 }
 if (operator == "/"){
   storageSpot.answer = (Number(numOne) / Number(numTwo))
-  console.log(storageSpot)
+  console.log("doing division: ", storageSpot)
   calculations.push(storageSpot)
 }
 

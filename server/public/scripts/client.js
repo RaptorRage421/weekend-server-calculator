@@ -9,7 +9,7 @@ let calculatorInput = (event) => {
       data: {
         numOne: parseFloat(document.getElementById('number_one').value),
         numTwo: parseFloat(document.getElementById('number_two').value),
-        operator: document.getElementById('plus').value
+        operator: mathsymbol
       }
     })
       .then((response) => {
@@ -20,7 +20,7 @@ let calculatorInput = (event) => {
       })
       .catch((error) => {
         console.log('POST for /calculations has not been added.')
-        alert("Ooooopsies Add new Guess Failed")
+        alert("Calculations POST has FAILED")
       })
     document.getElementById("inputForm").reset()
   }
