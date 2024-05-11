@@ -19,22 +19,22 @@ storageSpot.numTwo = numTwo
 storageSpot.operator = operator
 if (operator == "+"){
 storageSpot.result = (Number(numOne) + Number(numTwo))
-console.log("doing addition: ", storageSpot)
+// console.log("doing addition: ", storageSpot)
 calculations.push(storageSpot)
 }
 if (operator == "-"){
   storageSpot.result = (Number(numOne) - Number(numTwo))
-  console.log("doing subtraction: ", storageSpot)
+  // console.log("doing subtraction: ", storageSpot)
   calculations.push(storageSpot)
 }
 if (operator == "*"){
   storageSpot.result = (Number(numOne) * Number(numTwo))
-  console.log("doing multiplication: ", storageSpot)
+  // console.log("doing multiplication: ", storageSpot)
   calculations.push(storageSpot)
 }
 if (operator == "/"){
   storageSpot.result = (Number(numOne) / Number(numTwo))
-  console.log("doing division: ", storageSpot)
+  // console.log("doing division: ", storageSpot)
   calculations.push(storageSpot)
 }
 

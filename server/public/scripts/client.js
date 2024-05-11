@@ -52,17 +52,17 @@ function subtractButton(event) {
     mathOperator = "-"
 }
 
-function multiplyButton(event){
+function multiplyButton(event) {
     event.preventDefault()
     mathOperator = "*"
 }
-function  divideDutton(event){
+function divideDutton(event) {
     event.preventDefault()
     mathOperator = "/"
 }
 
 
-function gatherCalucations(){
+function gatherCalucations() {
 
     console.log("Gathering equations...")
     axios({
@@ -79,13 +79,13 @@ function gatherCalucations(){
         })
         .catch((error) => { // Manages errors
             console.log("GET for /calculations didnt work...", error)
-            
+
         })
 }
 
 
-function clearScreen(event){
-    
+function clearScreen(event) {
+
     event.preventDefault()
     let inputOne = document.getElementById('number_one')
     let inputTwo = document.getElementById('number_two')
@@ -96,17 +96,16 @@ function clearScreen(event){
 
 function renderCalculations(calcObject) {
     console.log("renderCalculations is Working...", calcObject)
-let newCalcSpot = document.getElementById('new_calculation')
-let calculationHistory = document.getElementById('calculation_history')
-// console.log("newCalculation location." , newCalcSpot)
-// console.log("Calculation History location...", calculationHistory)
-newCalcSpot.innerHTML = ""
-calculationHistory.innerHTML = ""
-calcObject.reverse()
-// newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
-newCalcSpot.innerHTML += `<div><h1><b>${calcObject[0].result}</b></h1></div>`
+    let newCalcSpot = document.getElementById('new_calculation')
+    let calculationHistory = document.getElementById('calculation_history')
+    
+    newCalcSpot.innerHTML = ""
+    calculationHistory.innerHTML = ""
+    calcObject.reverse()
+    // newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
+    newCalcSpot.innerHTML += `<div><h1><b>${calcObject[0].result}</b></h1></div>`
     for (let i = 0; i < calcObject.length; i++) {
-        
+
         console.log(`${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}`)
 
         calculationHistory.innerHTML += `<div>${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}</div>`
