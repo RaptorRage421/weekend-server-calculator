@@ -13,7 +13,7 @@ function onReady() {
 onReady()
 
 
-
+gatherCalucations()
 
 
 let calculatorInput = (event) => {
@@ -64,7 +64,7 @@ let divideDutton = (event) => {
 }
 
 
-let gatherCalucations = () => {
+function gatherCalucations(){
 
     console.log("Gathering equations...")
     axios({
@@ -81,7 +81,6 @@ let gatherCalucations = () => {
         })
         .catch((error) => { // Manages errors
             console.log("GET for /calculations didnt work...", error)
-            alert("Oopsie, that didnt work.")
         })
 }
 
@@ -90,18 +89,18 @@ let renderCalculations = (calcObject) => {
     console.log("renderCalculations is Working...", calcObject)
 let newCalcSpot = document.getElementById('new_calculation')
 let calculationHistory = document.getElementById('calculation_history')
-console.log("newCalculation location." , newCalcSpot)
-console.log("Calculation History location...", calculationHistory)
+// console.log("newCalculation location." , newCalcSpot)
+// console.log("Calculation History location...", calculationHistory)
 newCalcSpot.innerHTML = ""
 calculationHistory.innerHTML = ""
 calcObject.reverse()
 // newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
-newCalcSpot.innerHTML += `<div>${calcObject[0].numOne} ${calcObject[0].operator} ${calcObject[0].numTwo} = ${calcObject[0].answer}</div>`
+newCalcSpot.innerHTML += `<div>${calcObject[0].numOne} ${calcObject[0].operator} ${calcObject[0].numTwo} = ${calcObject[0].result}</div>`
     for (let i = 1; i < calcObject.length; i++) {
         
-        console.log(`${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].answer}`)
+        console.log(`${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}`)
 
-        calculationHistory.innerHTML += `<div>${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].answer}</div>`
+        calculationHistory.innerHTML += `<div>${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}</div>`
     }
 
 }
