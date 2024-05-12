@@ -15,6 +15,19 @@ onReady()
 
 gatherCalucations()
 
+function addbits(s) {
+    var total = 0,
+        s = s.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
+        
+    while (s.length) {
+      total += parseFloat(s.shift());
+    }
+    return total;
+  }
+  
+  console.log(
+    addbits(document.getElementById('calculatorscreen').value)
+  )
 
 function calculatorInput(event) {
     event.preventDefault()
@@ -23,7 +36,7 @@ function calculatorInput(event) {
         url: '/calculations',
         data: {
             
-            operator: mathOperator
+            screenInput: document.getElementById('calculatorscreen').value
         }
     })
         .then((response) => {
@@ -135,6 +148,7 @@ function clearScreen(event) {
    
 
 }
+
 
 function renderCalculations(calcObject) {
     console.log("renderCalculations is Working...", calcObject)

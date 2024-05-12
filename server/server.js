@@ -12,32 +12,40 @@ app.use(express.static('server/public'));
 // calculation objects:
 let calculations = []
 
-let computeAnswer = (numOne,numTwo,operator) => {
-let storageSpot = {}
-storageSpot.numOne = numOne
-storageSpot.numTwo = numTwo
-storageSpot.operator = operator
-if (operator == "+"){
-storageSpot.result = (Number(numOne) + Number(numTwo))
-// console.log("doing addition: ", storageSpot)
-calculations.push(storageSpot)
-}
-if (operator == "-"){
-  storageSpot.result = (Number(numOne) - Number(numTwo))
-  // console.log("doing subtraction: ", storageSpot)
-  calculations.push(storageSpot)
-}
-if (operator == "*"){
-  storageSpot.result = (Number(numOne) * Number(numTwo))
-  // console.log("doing multiplication: ", storageSpot)
-  calculations.push(storageSpot)
-}
-if (operator == "/"){
-  storageSpot.result = (Number(numOne) / Number(numTwo))
-  // console.log("doing division: ", storageSpot)
-  calculations.push(storageSpot)
-}
 
+// var string = '1+23+4+5-30';
+// console.log("testing the mathifier",
+//   addbits(string)
+// )
+
+let computeAnswer = (inputString) => {
+let storageSpot = {}
+// storageSpot.mathString = inputString.screenInput
+// console.log(eval(storageSpot.mathString))
+// storageSpot.numOne = numOne
+// storageSpot.numTwo = numTwo
+// storageSpot.operator = operator
+// if (operator == "+"){
+// storageSpot.result = (Number(numOne) + Number(numTwo))
+// // console.log("doing addition: ", storageSpot)
+// calculations.push(storageSpot)
+// }
+// if (operator == "-"){
+//   storageSpot.result = (Number(numOne) - Number(numTwo))
+//   // console.log("doing subtraction: ", storageSpot)
+//   calculations.push(storageSpot)
+// }
+// if (operator == "*"){
+//   storageSpot.result = (Number(numOne) * Number(numTwo))
+//   // console.log("doing multiplication: ", storageSpot)
+//   calculations.push(storageSpot)
+// }
+// if (operator == "/"){
+//   storageSpot.result = (Number(numOne) / Number(numTwo))
+//   // console.log("doing division: ", storageSpot)
+//   calculations.push(storageSpot)
+// }
+// calculations.push(storageSpot)
 console.log("Computing answer...", calculations)
 }
 // Here's a wonderful place to make some routes:
@@ -52,7 +60,8 @@ app.post('/calculations', (req, res) => {
   let incomingComputation = req.body
   //! can call a function here with server side logic to compare the inputs and do math.
   console.log("These are the variables of the calculation: " , incomingComputation)
- computeAnswer(incomingComputation.numOne,incomingComputation.numTwo,incomingComputation.operator)
+  console.log("what is this: ", parseFloat(incomingComputation.screenInput))
+ computeAnswer(incomingComputation)
   res.sendStatus(201)
 
 })
