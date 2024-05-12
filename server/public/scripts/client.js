@@ -22,8 +22,7 @@ function calculatorInput(event) {
         method: 'POST',
         url: '/calculations',
         data: {
-            numOne: parseFloat(document.getElementById('number_one').value),
-            numTwo: parseFloat(document.getElementById('number_two').value),
+            
             operator: mathOperator
         }
     })
@@ -43,24 +42,67 @@ let mathOperator
 
 function additionButton(event) {
     event.preventDefault()
-    mathOperator = "+"
-    return "+"
+    document.getElementById('calculatorscreen').value += "+"
 }
 
 function subtractButton(event) {
     event.preventDefault()
-    mathOperator = "-"
+    document.getElementById('calculatorscreen').value += "-"
 }
 
 function multiplyButton(event) {
     event.preventDefault()
-    mathOperator = "*"
+    document.getElementById('calculatorscreen').value += "*"
 }
 function divideDutton(event) {
     event.preventDefault()
-    mathOperator = "/"
+    document.getElementById('calculatorscreen').value += "/"
 }
 
+function oneButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "1"
+}
+function twoButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "2"
+}
+function threeButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "3"
+}
+function fourButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "4"
+}
+function fiveButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "5"
+}
+function sixButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "6"
+}
+function sevenButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "7"
+}
+function eightButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "8"
+}
+function nineButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "9"
+}
+function zeroButton(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "0"
+}
+function decimalPoint(event) {
+    event.preventDefault()
+   document.getElementById('calculatorscreen').value += "."
+}
 
 function gatherCalucations() {
 
@@ -87,10 +129,10 @@ function gatherCalucations() {
 function clearScreen(event) {
 
     event.preventDefault()
-    let inputOne = document.getElementById('number_one')
-    let inputTwo = document.getElementById('number_two')
-    inputOne.value = ""
-    inputTwo.value = ""
+    let calcInput = document.getElementById('calculatorscreen')
+    
+    calcInput.value = ""
+   
 
 }
 
