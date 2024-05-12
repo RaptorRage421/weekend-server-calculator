@@ -15,16 +15,6 @@ onReady()
 
 gatherCalucations()
 
-function addbits(s) {
-    var total = 0,
-        s = s.match(/[+\-]*(\.\d+|\d+(\.\d+)?)/g) || [];
-        
-    while (s.length) {
-      total += parseFloat(s.shift());
-    }
-    return total;
-  }
-  
   console.log(
     addbits(document.getElementById('calculatorscreen').value)
   )
