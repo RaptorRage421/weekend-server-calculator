@@ -22,8 +22,8 @@ function calculatorInput(event) {
         method: 'POST',
         url: '/calculations',
         data: {
-            numOne: parseFloat(document.getElementById('number_one').value),
-            numTwo: parseFloat(document.getElementById('number_two').value),
+            numOne: Number(document.getElementById('number_one').value),
+            numTwo: Number(document.getElementById('number_two').value),
             operator: mathOperator
         }
     })
@@ -72,10 +72,12 @@ function gatherCalucations() {
         .then((response) => { // Captures the response from server
             // Must be response.data
             let incomingCalcInputs = response.data
+            
             console.log("incoming math statements...", incomingCalcInputs)
             // Render calculations to
-
+        
             renderCalculations(incomingCalcInputs)
+            
         })
         .catch((error) => { // Manages errors
             console.error("GET for /calculations didnt work...", error)
@@ -91,6 +93,7 @@ function clearScreen(event) {
     let inputTwo = document.getElementById('number_two')
     inputOne.value = ""
     inputTwo.value = ""
+    mathOperator = undefined
 
 }
 
@@ -103,7 +106,9 @@ function renderCalculations(calcObject) {
     calculationHistory.innerHTML = ""
     calcObject.reverse()
     // newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
+    if (calcObject.result){
     newCalcSpot.innerHTML = `<div><h1><b>${calcObject[0].result}</b></h1></div>`
+}
     for (let i = 0; i < calcObject.length; i++) {
 
         console.log(`${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}`)
