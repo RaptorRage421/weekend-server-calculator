@@ -140,7 +140,7 @@ function clearScreen(event) {
 
 function clearAll(event) {
     event.preventDefault()
-    axios.delete('http://localhost:5000/calculations')
+    axios.delete("/calculations")
     .then(response => {
         console.log(response.data);
     })

@@ -108,7 +108,7 @@ app.post('/calculations', (req, res) => {
 app.delete('/calculations', (req, res) => { 
   for (result in calculations) {
     console.log('calculations', calculations[result])
-    calculations.pop(calculations[result])
+    calculations.length = 0
   }
         res.send("DELETE Request Called") 
     }) 
