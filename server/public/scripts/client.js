@@ -78,7 +78,7 @@ function gatherCalucations() {
             renderCalculations(incomingCalcInputs)
         })
         .catch((error) => { // Manages errors
-            console.log("GET for /calculations didnt work...", error)
+            console.error("GET for /calculations didnt work...", error)
 
         })
 }
@@ -99,11 +99,11 @@ function renderCalculations(calcObject) {
     let newCalcSpot = document.getElementById('new_calculation')
     let calculationHistory = document.getElementById('calculation_history')
     
-    newCalcSpot.innerHTML = ""
+    // newCalcSpot.innerHTML = ""
     calculationHistory.innerHTML = ""
     calcObject.reverse()
     // newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
-    newCalcSpot.innerHTML += `<div><h1><b>${calcObject[0].result}</b></h1></div>`
+    newCalcSpot.innerHTML = `<div><h1><b>${calcObject[0].result}</b></h1></div>`
     for (let i = 0; i < calcObject.length; i++) {
 
         console.log(`${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}`)
