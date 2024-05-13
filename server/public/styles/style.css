@@ -1,8 +1,139 @@
 h1 {
     color: darkmagenta;
     text-align: center;
+    font-size: 40px;
 }
 
 body{
-    text-align: center;
+    text-align: left;
+    font-size: 30px;
+}
+
+.clickablebuttons {
+    height: 100px;
+    width: 100px;
+   border: 0;
+    font-size: 2em;
+    margin: 0px;
+    padding: 0;
+}
+#calculatorscreen {
+    margin-left: 5px;
+    width: 308px;
+    height: 50px;
+    font-size: 30px;
+}
+
+#number1 {
+   
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/1.png');
+    background-size: cover;
+}
+#number2 {
+    
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/2.png');
+    background-size: contain;
+}
+#number3 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/3.png');
+    background-size: contain;
+}
+#number4 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/4.png');
+    background-size: contain;
+}
+#number5 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/5.png');
+    background-size: contain;
+}
+#number6 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/6.png');
+    background-size: contain;
+}
+#number7 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/7.png');
+    background-size: contain;
+}
+#number8 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/8.png');
+    background-size: contain;
+}
+#number9 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/9.png');
+    background-size: contain;
+}
+#number0 {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/0.png');
+    background-size: contain;
+}
+#equals{
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/equals.png');
+    background-size: contain;
+}
+#divide {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/divide.png');
+    background-size: contain;
+}
+#multiply {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/multiply.png');
+    background-size: contain;
+}
+#minus {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/minus.png');
+    background-size: contain;
+}
+#plus {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/plus.png');
+    background-size: contain;
+}
+#clearbutton {
+    margin-left: 25px;
+    padding: 28px;
+    width: 70px;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-image: url('../calculator/clear.png');
+    background-size: contain;
+}
+#allClear {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/allClear.png');
+    background-size: contain;
+}
+#decimal {
+    
+    background-repeat: no-repeat;
+    background-image: url('../calculator/decimal.png');
+    background-size: contain;
 }
