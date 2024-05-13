@@ -55,36 +55,36 @@ function calculator(string) {
   console.log(calculations)
 }
 
-let computeAnswer = (inputString) => {
-  // let storageSpot = {}
-  // storageSpot.mathString = inputString.screenInput
-  // console.log(eval(storageSpot.mathString))
-  // storageSpot.numOne = numOne
-  // storageSpot.numTwo = numTwo
-  // storageSpot.operator = operator
-  // if (operator == "+"){
-  // storageSpot.result = (Number(numOne) + Number(numTwo))
-  // // console.log("doing addition: ", storageSpot)
-  // calculations.push(storageSpot)
-  // }
-  // if (operator == "-"){
-  //   storageSpot.result = (Number(numOne) - Number(numTwo))
-  //   // console.log("doing subtraction: ", storageSpot)
-  //   calculations.push(storageSpot)
-  // }
-  // if (operator == "*"){
-  //   storageSpot.result = (Number(numOne) * Number(numTwo))
-  //   // console.log("doing multiplication: ", storageSpot)
-  //   calculations.push(storageSpot)
-  // }
-  // if (operator == "/"){
-  //   storageSpot.result = (Number(numOne) / Number(numTwo))
-  //   // console.log("doing division: ", storageSpot)
-  //   calculations.push(storageSpot)
-  // }
-  // calculations.push(storageSpot)
-  console.log("Computing answer...", calculations)
-}
+// let computeAnswer = (inputString) => {
+// let storageSpot = {}
+// storageSpot.mathString = inputString.screenInput
+// console.log(eval(storageSpot.mathString))
+// storageSpot.numOne = numOne
+// storageSpot.numTwo = numTwo
+// storageSpot.operator = operator
+// if (operator == "+"){
+// storageSpot.result = (Number(numOne) + Number(numTwo))
+// // console.log("doing addition: ", storageSpot)
+// calculations.push(storageSpot)
+// }
+// if (operator == "-"){
+//   storageSpot.result = (Number(numOne) - Number(numTwo))
+//   // console.log("doing subtraction: ", storageSpot)
+//   calculations.push(storageSpot)
+// }
+// if (operator == "*"){
+//   storageSpot.result = (Number(numOne) * Number(numTwo))
+//   // console.log("doing multiplication: ", storageSpot)
+//   calculations.push(storageSpot)
+// }
+// if (operator == "/"){
+//   storageSpot.result = (Number(numOne) / Number(numTwo))
+//   // console.log("doing division: ", storageSpot)
+//   calculations.push(storageSpot)
+// }
+// calculations.push(storageSpot)
+//   console.log("Computing answer...", calculations)
+// }
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
@@ -104,6 +104,14 @@ app.post('/calculations', (req, res) => {
 
 })
 
+
+app.delete('/calculations', (req, res) => { 
+  for (result in calculations) {
+    console.log('calculations', calculations[result])
+    calculations.pop(calculations[result])
+  }
+        res.send("DELETE Request Called") 
+    }) 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
 

@@ -1,3 +1,4 @@
+
 function onReady() {
     console.log('client.js is sourced!');
 
@@ -15,9 +16,7 @@ onReady()
 
 gatherCalucations()
 
-  console.log(
-    addbits(document.getElementById('calculatorscreen').value)
-  )
+
 
 function calculatorInput(event) {
     event.preventDefault()
@@ -25,7 +24,7 @@ function calculatorInput(event) {
         method: 'POST',
         url: '/calculations',
         data: {
-            
+
             screenInput: document.getElementById('calculatorscreen').value
         }
     })
@@ -64,47 +63,47 @@ function divideDutton(event) {
 
 function oneButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "1"
+    document.getElementById('calculatorscreen').value += "1"
 }
 function twoButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "2"
+    document.getElementById('calculatorscreen').value += "2"
 }
 function threeButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "3"
+    document.getElementById('calculatorscreen').value += "3"
 }
 function fourButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "4"
+    document.getElementById('calculatorscreen').value += "4"
 }
 function fiveButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "5"
+    document.getElementById('calculatorscreen').value += "5"
 }
 function sixButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "6"
+    document.getElementById('calculatorscreen').value += "6"
 }
 function sevenButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "7"
+    document.getElementById('calculatorscreen').value += "7"
 }
 function eightButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "8"
+    document.getElementById('calculatorscreen').value += "8"
 }
 function nineButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "9"
+    document.getElementById('calculatorscreen').value += "9"
 }
 function zeroButton(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "0"
+    document.getElementById('calculatorscreen').value += "0"
 }
 function decimalPoint(event) {
     event.preventDefault()
-   document.getElementById('calculatorscreen').value += "."
+    document.getElementById('calculatorscreen').value += "."
 }
 
 function gatherCalucations() {
@@ -133,10 +132,30 @@ function clearScreen(event) {
 
     event.preventDefault()
     let calcInput = document.getElementById('calculatorscreen')
-    
-    calcInput.value = ""
-   
 
+    calcInput.value = ""
+
+
+}
+
+function clearAll(event) {
+    event.preventDefault()
+    axios.delete('http://localhost:5000/calculations')
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => {
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        } else if (error.request) {
+            console.log(error.request);
+        } else {
+            console.log('Error', error.message);
+        }
+        console.log(error.config)
+    })
 }
 
 
@@ -144,11 +163,12 @@ function renderCalculations(calcObject) {
     console.log("renderCalculations is Working...", calcObject)
     let newCalcSpot = document.getElementById('new_calculation')
     let calculationHistory = document.getElementById('calculation_history')
-    
+
     newCalcSpot.innerHTML = ""
     calculationHistory.innerHTML = ""
     calcObject.reverse()
     // newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
+    document.getElementById('calculatorscreen').value = `${calcObject[0].result}`
     newCalcSpot.innerHTML += `<div><h1><b>${calcObject[0].result}</b></h1></div>`
     for (let i = 0; i < calcObject.length; i++) {
 

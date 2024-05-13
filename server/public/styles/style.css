@@ -1,6 +1,6 @@
 h1 {
     color: darkmagenta;
-    text-align: center;
+    text-align: left justify;
     font-size: 40px;
 }
 
@@ -22,6 +22,7 @@ body{
     width: 308px;
     height: 50px;
     font-size: 30px;
+    font-family: monospace;
 }
 
 #number1 {
@@ -117,7 +118,7 @@ body{
     background-size: contain;
 }
 #clearbutton {
-    margin-left: 25px;
+    margin-left: 20px;
     padding: 28px;
     width: 70px;
     height: 70px;
