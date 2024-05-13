@@ -36,7 +36,7 @@ body{
     
     background-repeat: no-repeat;
     background-image: url('../calculator/1.png');
-    background-size: cover;
+    background-size: contain;
 }
 #number2 {
     
