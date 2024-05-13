@@ -13,10 +13,7 @@ app.use(express.static('server/public'));
 let calculations = []
 
 
-// var string = '1+23+4+5-30';
-// console.log("testing the mathifier",
-//   addbits(string)
-// )
+
 
 function calculator(string) {
   let calculation = string.split(/\b\s*([+\/*-])\s*/)
