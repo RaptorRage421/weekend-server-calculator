@@ -1,3 +1,4 @@
+
 function onReady() {
     console.log('client.js is sourced!');
 
@@ -16,15 +17,15 @@ onReady()
 gatherCalucations()
 
 
+
 function calculatorInput(event) {
     event.preventDefault()
     axios({
         method: 'POST',
         url: '/calculations',
         data: {
-            numOne: Number(document.getElementById('number_one').value),
-            numTwo: Number(document.getElementById('number_two').value),
-            operator: mathOperator
+
+            screenInput: document.getElementById('calculatorscreen').value
         }
     })
         .then((response) => {
@@ -43,24 +44,67 @@ let mathOperator
 
 function additionButton(event) {
     event.preventDefault()
-    mathOperator = "+"
-    return "+"
+    document.getElementById('calculatorscreen').value += "+"
 }
 
 function subtractButton(event) {
     event.preventDefault()
-    mathOperator = "-"
+    document.getElementById('calculatorscreen').value += "-"
 }
 
 function multiplyButton(event) {
     event.preventDefault()
-    mathOperator = "*"
+    document.getElementById('calculatorscreen').value += "*"
 }
 function divideDutton(event) {
     event.preventDefault()
-    mathOperator = "/"
+    document.getElementById('calculatorscreen').value += "/"
 }
 
+function oneButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "1"
+}
+function twoButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "2"
+}
+function threeButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "3"
+}
+function fourButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "4"
+}
+function fiveButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "5"
+}
+function sixButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "6"
+}
+function sevenButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "7"
+}
+function eightButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "8"
+}
+function nineButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "9"
+}
+function zeroButton(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "0"
+}
+function decimalPoint(event) {
+    event.preventDefault()
+    document.getElementById('calculatorscreen').value += "."
+}
 
 function gatherCalucations() {
 
@@ -72,15 +116,13 @@ function gatherCalucations() {
         .then((response) => { // Captures the response from server
             // Must be response.data
             let incomingCalcInputs = response.data
-            
             console.log("incoming math statements...", incomingCalcInputs)
             // Render calculations to
-        
+
             renderCalculations(incomingCalcInputs)
-            
         })
         .catch((error) => { // Manages errors
-            console.error("GET for /calculations didnt work...", error)
+            console.log("GET for /calculations didnt work...", error)
 
         })
 }
@@ -89,25 +131,48 @@ function gatherCalucations() {
 function clearScreen(event) {
 
     event.preventDefault()
-    let inputOne = document.getElementById('number_one')
-    let inputTwo = document.getElementById('number_two')
-    inputOne.value = ""
-    inputTwo.value = ""
-    mathOperator = undefined
+    let calcInput = document.getElementById('calculatorscreen')
+
+    calcInput.value = ""
+
 
 }
+
+function clearAll(event) {
+    event.preventDefault()
+    axios.delete("/calculations")
+        .then(response => {
+            console.log(response.data);
+            gatherCalucations()
+            document.getElementById('calculatorscreen').value = ""
+        })
+        .catch(error => {
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                console.log(error.request);
+            } else {
+                console.log('Error', error.message);
+            }
+            console.log(error.config)
+        })
+}
+
 
 function renderCalculations(calcObject) {
     console.log("renderCalculations is Working...", calcObject)
     let newCalcSpot = document.getElementById('new_calculation')
     let calculationHistory = document.getElementById('calculation_history')
-    
-    // newCalcSpot.innerHTML = ""
+
+    newCalcSpot.innerHTML = ""
     calculationHistory.innerHTML = ""
     calcObject.reverse()
     // newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
-    if (calcObject.result){
-    newCalcSpot.innerHTML = `<div><h1><b>${calcObject[0].result}</b></h1></div>`
+    if (newCalcSpot.resut){
+    document.getElementById('calculatorscreen').value = `${calcObject[0].result}`
+    newCalcSpot.innerHTML += `<div><h1><b>${calcObject[0].result}</b></h1></div>`
 }
     for (let i = 0; i < calcObject.length; i++) {
 

@@ -5,19 +5,40 @@
     <title>Server-Side Calculator</title>    
     <script defer src="./scripts/axios.js"></script>
     <script defer src="./scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="./styles/style.css">
   </head>
   <body>
     <h1>Server-Side Calculator</h1>
 
     <form id="inputForm" data-testid="calculator">
-      <input id="number_one" data-testid="numOne" placeholder="First Number">
-      <button class="clickablebuttons" id="plus" onClick="additionButton(event)">+</button>
-      <button class="clickablebuttons" id="minus" onClick="subtractButton(event)">-</button>
-      <button class="clickablebuttons" id="multiply" onClick="multiplyButton(event)">*</button>
-      <button class="clickablebuttons" id="divide" onClick="divideDutton(event)">/</button>
-      <input id="number_two" data-testid="numTwo" placeholder="Second Number">
-      <button class="clickablebuttons" id="equals" onClick="calculatorInput(event)">=</button>
-      <button class="clickablebuttons" id="clearbutton" onClick="clearScreen(event)">C</button>
+      <input id="calculatorscreen" data-testid="numOne" placeholder=""><span>
+      <button class="clickablebuttons" id="clearbutton" onClick="clearScreen(event)"></button></span>
+      <button class="clickablebuttons" id="allClear" onClick="clearAll(event)"></button>
+      <div>
+      <button class="clickablebuttons" id="number7" onClick="sevenButton(event)"></button>
+      <button class="clickablebuttons" id="number8" onClick="eightButton(event)"></button>
+      <button class="clickablebuttons" id="number9" onClick="nineButton(event)"></button>
+      <button class="clickablebuttons" id="plus" onClick="additionButton(event)"></button>
+    </div>
+    <div>
+      <button class="clickablebuttons" id="number4" onClick="fourButton(event)"></button>
+      <button class="clickablebuttons" id="number5" onClick="fiveButton(event)"></button>
+      <button class="clickablebuttons" id="number6" onClick="sixButton(event)"></button>
+      <button class="clickablebuttons" id="minus" onClick="subtractButton(event)"></button>
+    </div>
+    <div>
+      <button class="clickablebuttons" id="number1" onClick="oneButton(event)"></button>
+      <button class="clickablebuttons" id="number2" onClick="twoButton(event)"></button>
+      <button class="clickablebuttons" id="number3" onClick="threeButton(event)"></button>
+      <button class="clickablebuttons" id="multiply" onClick="multiplyButton(event)"></button>
+    </div>
+    <div>
+      <button class="clickablebuttons" id="number0" onClick="zeroButton(event)"></button>
+      <button class="clickablebuttons" id="decimal" onClick="decimalPoint(event)"></button>
+      <button class="clickablebuttons" id="equals" onClick="calculatorInput(event)"></button>
+      <button class="clickablebuttons" id="divide" onClick="divideDutton(event)"></button>
+    </div>
+      
     </form>
 
     <section id="new_calculation" data-testid="recentResult">
