@@ -8,7 +8,7 @@
     "test:server": "NODE_ENV=test && jest ./__tests__/server-test.js --verbose",
     "test:client": "NODE_ENV=test && jest ./__tests__/client-test.js --verbose",
     "server": "nodemon server/server.js",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
   },
   "dependencies": {
     "body-parser": "^1.20.2",
