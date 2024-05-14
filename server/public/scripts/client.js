@@ -171,15 +171,15 @@ function renderCalculations(calcObject) {
     console.log('calcObject', calcObject)
     calcObject.reverse()
     // newCalcSpot.innerHTML += `<div>${calcObject[calcObject.length].numOne} ${calcObject[calcObject.length].operator} ${calcObject[calcObject.length].numTwo} = ${calcObject[calcObject.length].answer}</div>`
-    if (calcObject[0].result !== undefined){
-    document.getElementById('calculatorscreen').value = `${calcObject[0].result}`
-    newCalcSpot.innerHTML += `<div><h1><b>${calcObject[0].result}</b></h1></div>`
-
+    if (calcObject.length > 0) {
+        document.getElementById('calculatorscreen').value = `${calcObject[0].result}`
+        newCalcSpot.innerHTML += `<div><h1><b>${calcObject[0].result}</b></h1></div>`
+    }
     for (let i = 0; i < calcObject.length; i++) {
 
         console.log(`${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}`)
 
         calculationHistory.innerHTML += `<div>${calcObject[i].numOne} ${calcObject[i].operator} ${calcObject[i].numTwo} = ${calcObject[i].result}</div>`
     }
-}
+
 }
