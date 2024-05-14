@@ -4,10 +4,11 @@
   "description": "weekend server calculator",
   "main": "server/server.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "NODE_ENV=test && jest --verbose --testEnvironment=steps",
     "test:server": "NODE_ENV=test && jest ./__tests__/server-test.js --verbose",
     "test:client": "NODE_ENV=test && jest ./__tests__/client-test.js --verbose",
-    "start": "node server/server.js"
+    
     
   },
   "dependencies": {
